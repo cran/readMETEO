@@ -1,0 +1,2 @@
+export(readMeteo,searMETEO)
+import(XML)
