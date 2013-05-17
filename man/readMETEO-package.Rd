@@ -12,8 +12,8 @@ This package allows to download weather data from www.meteogalicia.com (10-minut
 \tabular{ll}{
 Package: \tab readMETEO\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
-Date: \tab 2013-05-13\cr
+Version: \tab 1.1\cr
+Date: \tab 2013-05-17\cr
 License: \tab GPL-2\cr
 }
 readMeteo - Download weather data\cr

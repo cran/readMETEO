@@ -41,7 +41,8 @@ if(as.Date(date1,format="%d/%m/%Y")<as.Date(date2,format="%d/%m/%Y")) { # llave 
       
                     temp <- do.call("rbind", temp)
                     temp[,2] <- as.numeric(gsub(",",".",temp[,2]))
-                    names(temp) <- c("Fecha",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                    ntemp <- c("Date",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                    names(temp) <- gsub(" ",".",ntemp)
                     table <- temp
                     row.names(table) <- 1:nrow(table)
                     return(table)
@@ -56,7 +57,8 @@ if(as.Date(date1,format="%d/%m/%Y")<as.Date(date2,format="%d/%m/%Y")) { # llave 
                     temp <- NULL
                     temp <- readHTMLTable(url,stringsAsFactors=F)[[1]][-1:-2,]
                     temp[,2] <- as.numeric(gsub(",",".",temp[,2]))
-                    names(temp) <- c("Fecha",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                    ntemp <- c("Date",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                    names(temp) <- gsub(" ",".",ntemp)
                     table <- temp
                     row.names(table) <- 1:nrow(table)
                     return(table)
@@ -101,7 +103,8 @@ if(as.Date(date1,format="%d/%m/%Y")<as.Date(date2,format="%d/%m/%Y")) { # llave 
                           temp <- do.call("rbind", temp)
                           temp[,2:ncol(temp)] <- apply(temp[,2:ncol(temp)],2,gsub,pattern=",",replacement=".")
                           temp[,2:ncol(temp)] <- apply(temp[,2:ncol(temp)],2,as.numeric)
-                          names(temp) <- c("Fecha",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                          ntemp <- c("Date",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                          names(temp) <- gsub(" ",".",ntemp)
                           table <- temp
                           row.names(table) <- 1:nrow(table)
                           return(table)
@@ -119,7 +122,8 @@ if(as.Date(date1,format="%d/%m/%Y")<as.Date(date2,format="%d/%m/%Y")) { # llave 
                                   temp <- readHTMLTable(url,stringsAsFactors=F,dec = ",")[[1]][-1:-2,]
                                   temp[,2:ncol(temp)] <- apply(temp[,2:ncol(temp)],2,gsub,pattern=",",replacement=".")
                                   temp[,2:ncol(temp)] <- apply(temp[,2:ncol(temp)],2,as.numeric)
-                                  names(temp) <- c("Fecha",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                                  ntemp <- c("Date",eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[eval(parse(text=paste("varMETEO10$",est,collapse="",sep="")))[,1]%in%var,1])
+                                  names(temp) <- gsub(" ",".",ntemp)
                                   table <- temp
                                   row.names(table) <- 1:nrow(table)
                                   return(table)
@@ -155,7 +159,8 @@ if(as.Date(date1,format="%d/%m/%Y")<as.Date(date2,format="%d/%m/%Y")) { # llave 
                       
                       ifelse(length(var)>1,temp[,2:ncol(temp)] <- apply(temp[,2:ncol(temp)],2,as.numeric),temp[,2] <- as.numeric(temp[,2]))
                       
-                      names(temp) <- c("Fecha",eval(parse(text=paste("varMETEO",collapse="",sep="")))[eval(parse(text=paste("varMETEO",collapse="",sep="")))[,1]%in%var,1])
+                      ntemp <- c("Date",eval(parse(text=paste("varMETEO",collapse="",sep="")))[eval(parse(text=paste("varMETEO",collapse="",sep="")))[,1]%in%var,1])
+                      names(temp) <- gsub(" ",".",ntemp)
                       table <- temp
                       row.names(table) <- 1:nrow(table)
                       return(table)
@@ -185,7 +190,8 @@ if(as.Date(date1,format="%d/%m/%Y")<as.Date(date2,format="%d/%m/%Y")) { # llave 
                       
                       ifelse(length(var)>1,temp[,2:ncol(temp)] <- apply(temp[,2:ncol(temp)],2,as.numeric),temp[,2] <- as.numeric(temp[,2]))
                       
-                      names(temp) <- c("Fecha",eval(parse(text=paste("varMETEO",collapse="",sep="")))[eval(parse(text=paste("varMETEO",collapse="",sep="")))[,1]%in%var,1])
+                      ntemp <- c("Date",eval(parse(text=paste("varMETEO",collapse="",sep="")))[eval(parse(text=paste("varMETEO",collapse="",sep="")))[,1]%in%var,1])
+                      names(temp) <- gsub(" ",".",ntemp)
                       table <- temp
                       row.names(table) <- 1:nrow(table)
                       return(table)
